@@ -1,3 +1,8 @@
+//!Para evitar que el usuario vea el codigo de JS se debe encerrar en una funcion. 
+//*immediately invoked function
+
+(() => {
+
 const btn = document.querySelector("[data-form-btn]");
 
 //*CREANDO TAREA
@@ -13,7 +18,6 @@ const createTask = (evento) => {
 
 //*AGREGANDO LOS ELEMENTOS HTML Y CLASES
 
-console.log(checkComplete());
 //creando elementos en orden
   const taskContent = document.createElement('div');
 
@@ -30,10 +34,7 @@ console.log(checkComplete());
   task.appendChild(taskContent);
   list.appendChild(task);
 
-  console.log(content);
 };
-
-console.log(btn);
 
 btn.addEventListener("click", createTask); //Cuando se haga click se crea una tarea
 
@@ -56,3 +57,5 @@ element.classList.toggle(completeIcon);
 element.classList.toggle('far'); //elimino una clase
 }
 // .remove es para remover // .toggle es para verificar si existe lo coloco si no no . 
+
+})();
