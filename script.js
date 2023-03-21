@@ -1,5 +1,7 @@
 const btn = document.querySelector("[data-form-btn]");
 
+//*CREANDO TAREA
+
 const createTask = (evento) => {
   evento.preventDefault(); //poner en blanco el campo de input
   const input = document.querySelector("[data-form-input]");
@@ -9,13 +11,15 @@ const createTask = (evento) => {
   task.classList.add("card"); //darle clase al elmento creado.
   input.value = " ";
 
+//*AGREGANDO LOS ELEMENTOS HTML Y CLASES
+
 console.log(checkComplete());
 //creando elementos en orden
   const taskContent = document.createElement('div');
 
-  const titleTask = document.createElement('span');
-  titleTask.classList.add('task');
-  titleTask.innerText = value;
+  const titleTask = document.createElement('span'); //crear etiqueta span
+  titleTask.classList.add('task'); //le creo una clase
+  titleTask.innerText = value; //inserte texto de value
   taskContent.appendChild(checkComplete());
   taskContent.appendChild(titleTask);
 
@@ -23,16 +27,7 @@ console.log(checkComplete());
   const content = `
 <i class="fas fa-trash-alt trashIcon icon"></i>`;
 
-  //el value lo queremos insertar en una card, la cual tiene la variable task.
-  //con la propiedad innerHTML anexamos codigo html.
-
-  //! task.innerHTML = content;
-
   task.appendChild(taskContent);
-
-
-  //agregar un hijo a un elemento padre
-
   list.appendChild(task);
 
   console.log(content);
@@ -40,15 +35,24 @@ console.log(checkComplete());
 
 console.log(btn);
 
-btn.addEventListener("click", createTask);
+btn.addEventListener("click", createTask); //Cuando se haga click se crea una tarea
 
 //Hacer que el content viva dentro de una //*funcion.
 
 const checkComplete = () => {
   const i = document.createElement("i");
-  i.classList.add("far");
-  i.classList.add("fa-check-square");
-  i.classList.add("icon");
-  
+  i.classList.add("far","fa-check-square","icon");
+  addEventListener('click' , taskComplete);//cuando escuche el evento click haga la funcion de taskcomplete
+
   return i
 };
+
+//*CONCLUIR TAREA
+
+const taskComplete = (event) => {
+const element = event.target;
+element.classList.toggle('fas');
+element.classList.toggle(completeIcon);
+element.classList.toggle('far'); //elimino una clase
+}
+// .remove es para remover // .toggle es para verificar si existe lo coloco si no no . 
