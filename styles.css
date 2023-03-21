@@ -31,6 +31,7 @@ form {
   border-radius: 25px;
   background-color: #fff;
   padding: 25px;
+  box-shadow: 5px 5px 10px 5px rgba(8, 8, 124, 0.721);
 }
 
 .title {
@@ -51,6 +52,7 @@ form {
 
 .inputForm::placeholder {
   padding: 0px;
+  background-color: antiquewhite;
 }
 
 .btnCreate {
@@ -64,6 +66,10 @@ form {
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
+}
+.btnCreate:hover {
+  box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.502);
+  scale: 1.05;
 }
 
 .cardsList {
@@ -87,6 +93,7 @@ form {
   align-content: center;
   margin: 5px 0px;
   position: relative;
+  border-radius: 5px;
 }
 
 .task {
