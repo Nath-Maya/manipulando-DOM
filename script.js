@@ -28,10 +28,8 @@ const createTask = (evento) => {
   taskContent.appendChild(titleTask);
 
 
-  const content = `
-<i class="fas fa-trash-alt trashIcon icon"></i>`;
-
   task.appendChild(taskContent);
+  taskContent.appendChild(deleteIcon());
   list.appendChild(task);
 
 };
@@ -51,11 +49,28 @@ const checkComplete = () => {
 //*CONCLUIR TAREA
 
 const taskComplete = (event) => {
-const element = event.target;
+const element = event.target;//encontrar el objetivo del elemento
 element.classList.toggle('fas');
-element.classList.toggle(completeIcon);
+element.classList.toggle('completeIcon');
 element.classList.toggle('far'); //elimino una clase
 }
 // .remove es para remover // .toggle es para verificar si existe lo coloco si no no . 
+
+//*ELIMINAR TAREA
+
+const deleteIcon = () => {
+  const i = document.createElement("i");
+  i.classList.add("fas","fa-trash-alt","trashIcon","icon");
+  i.addEventListener('click',deleteTask);
+
+  return i;
+}
+
+const deleteTask = (event) => {
+
+  const parent = event.target.parentElement;//accedemos al evento, target y al elemento padre. 
+  console.log(parent);
+  parent.remove;
+}
 
 })();
